@@ -4,8 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3003",
-    "build": "vite build"
+    "dev": "npm-run-all --parallel build:watch preview",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "preview": "wait-on dist && vite preview --port 3003 --strictPort"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.0",
