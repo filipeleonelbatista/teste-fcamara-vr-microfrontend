@@ -1,17 +1,20 @@
 {
   "name": "footer",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite --port 3003",
+    "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.1.0",
+    "@reduxjs/toolkit": "^2.2.0"
+  },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.6.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.1.0"
   }
 }

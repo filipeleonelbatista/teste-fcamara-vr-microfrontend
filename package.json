@@ -1,7 +1,7 @@
 {
   "name": "teste-fcamara-vr-microfrontend",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "workspaces": [
     "app-shell",
     "header",
@@ -9,9 +9,7 @@
     "footer",
     "shared"
   ],
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "vite-plugin-federation": "^0.0.1"
+  }
 }
