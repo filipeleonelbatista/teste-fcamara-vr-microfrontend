@@ -1,0 +1,17 @@
+{
+  "name": "teste-fcamara-vr-microfrontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "app-shell",
+    "header",
+    "cards",
+    "footer",
+    "shared"
+  ],
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
