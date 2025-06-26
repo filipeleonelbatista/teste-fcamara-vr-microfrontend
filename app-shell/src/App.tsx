@@ -1,10 +1,17 @@
-const App = () => {
-  return (
-    <div className="p-4 text-center">
-      <h1>App Shell</h1>
-      {/* Futuramente Header, Cards e Footer serão carregados aqui */}
-    </div>
-  );
-};
+import React, { Suspense } from "react";
 
-export default App
+const RemoteHeader = React.lazy(() => import("header/Header"));
+
+const App = () => (
+  <div>
+    <Suspense fallback={<div>Carregando Header...</div>}>
+      <RemoteHeader />
+    </Suspense>
+    {/* Cards e Footer virão depois */}
+    <main className="p-8">
+      <h2 className="text-xl">Bem-vindo ao Green Cart Haven!</h2>
+    </main>
+  </div>
+);
+
+export default App;
