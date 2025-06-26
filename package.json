@@ -9,7 +9,11 @@
     "footer",
     "shared"
   ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace app-shell\" \"npm run dev --workspace header\" \"npm run dev --workspace cards\" \"npm run dev --workspace footer\""
+  },
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "vite-plugin-federation": "^0.0.1"
   }
 }

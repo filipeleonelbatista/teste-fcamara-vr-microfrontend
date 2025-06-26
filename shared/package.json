@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "main": "redux/store.ts",
   "dependencies": {
-    "react-redux": "^9.1.0",
-    "@reduxjs/toolkit": "^2.2.0"
+    "@reduxjs/toolkit": "^2.2.0",
+    "react-redux": "^9.1.0"
   }
 }
