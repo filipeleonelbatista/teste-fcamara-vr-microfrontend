@@ -20,7 +20,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-green-50 rounded p-4 flex flex-col items-center shadow hover:scale-105 transition">
+    <div className="border-green-300 rounded p-4 flex flex-col items-center hover:scale-105 transition">
       <img
         src={product.thumbnail}
         alt={product.title}
