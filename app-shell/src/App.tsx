@@ -4,7 +4,8 @@ import { fetchProducts } from "shared/redux/slices/productsSlice";
 import type { AppDispatch } from "shared/redux/store";
 const RemoteHeader = React.lazy(() => import("header/Header"));
 const RemoteFooter = React.lazy(() => import("footer/Footer"));
-import ProductList from "cards/ProductList";
+const RemoteProducts = React.lazy(() => import("cards/ProductList"));
+
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -29,7 +30,9 @@ const App = () => {
             </div>
             <img src="./images/hero.png" alt="grocery" />
           </div>
-          <ProductList />
+          <Suspense fallback={<div>Carregando Produtos...</div>}>
+            <RemoteProducts />
+          </Suspense>
         </main>
         <Suspense fallback={<div>Carregando Footer...</div>}>
           <RemoteFooter />
