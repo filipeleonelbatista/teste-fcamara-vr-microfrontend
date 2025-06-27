@@ -5,6 +5,9 @@ const config: Config = {
     '../shared/**/*.{js,ts,jsx,tsx}',],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#228B22',
