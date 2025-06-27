@@ -5,11 +5,6 @@ import type { AppDispatch } from "shared/redux/store";
 const RemoteHeader = React.lazy(() => import("header/Header"));
 const RemoteFooter = React.lazy(() => import("footer/Footer"));
 import ProductList from "cards/ProductList";
-
-const Box = ({ children, className = "" }) => (
-  <div className={`bg-white rounded shadow p-6 mb-6 ${className}`}>{children}</div>
-);
-
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -24,13 +19,16 @@ const App = () => {
           <RemoteHeader />
         </Suspense>
         <main className="p-8 bg-white">
-          <Box className="bg-green-800 text-white flex flex-col items-start">
-            <h2 className="text-2xl font-bold mb-2">HEALTHY AND FRESH GROCERY</h2>
-            <p className="mb-4 max-w-lg">
-              We pride ourselves on providing a curated of the finest, nutrient-rich products that cater to your health conscious lifestyle.
-            </p>
-            <button className="bg-white text-green-800 px-4 py-2 rounded font-semibold">LEARN MORE</button>
-          </Box>
+          <div className="bg-green-800 p-6 mb-6 text-white flex flex-col items-start">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">HEALTHY AND FRESH GROCERY</h2>
+              <p className="mb-4 max-w-lg">
+                We pride ourselves on providing a curated of the finest, nutrient-rich products that cater to your health conscious lifestyle.
+              </p>
+              <button className="bg-white text-green-800 px-4 py-2 rounded font-semibold">LEARN MORE</button>
+            </div>
+            <img src="./images/hero.png" alt="grocery" />
+          </div>
           <ProductList />
         </main>
         <Suspense fallback={<div>Carregando Footer...</div>}>

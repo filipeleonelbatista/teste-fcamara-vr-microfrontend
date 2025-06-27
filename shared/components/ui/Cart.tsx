@@ -4,7 +4,7 @@ import type { RootState } from "shared/redux/store";
 import { clearCart, removeFromCart } from "shared/redux/slices/cartSlice";
 import Badge from "./Badge";
 import Modal from "./Modal";
-import Button from "./Button";
+import { ShoppingCart } from "lucide-react"
 
 export const Cart: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -15,14 +15,14 @@ export const Cart: React.FC = () => {
 
   return (
     <>
-      <Button
+      <button className="w-10 h-10 p-2 flex rounded-full items-center justify-center bg-green-300 text-green-800 hover:bg-green-500"
         onClick={() => setOpen(true)}
       >
-        🛒 Carrinho
+        <ShoppingCart className="w-8 h-8" />
         {totalItems > 0 && (
           <Badge className="absolute -top-2 -right-2">{totalItems}</Badge>
         )}
-      </Button>
+      </button>
       <Modal open={open} onClose={() => setOpen(false)}>
         <h2 className="text-lg font-bold mb-2">Carrinho de Compras</h2>
         {items.length === 0 ? (
