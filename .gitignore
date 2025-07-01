@@ -43,3 +43,5 @@ coverage/
 # Optional: Mac specific
 .AppleDouble
 .LSOverride
+
+package-lock.json

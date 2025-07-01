@@ -15,37 +15,51 @@ export const Cart: React.FC = () => {
 
   return (
     <>
-      <button className="w-10 h-10 p-2 flex rounded-full items-center justify-center bg-green-300 text-green-800 hover:bg-green-500"
-        onClick={() => setOpen(true)}
-      >
-        <ShoppingCart className="w-8 h-8" />
-        {totalItems > 0 && (
-          <Badge className="absolute -top-2 -right-2">{totalItems}</Badge>
-        )}
-      </button>
+      {
+        !open && (
+          <button className="w-[40px] h-[40px] p-2 flex rounded-full items-center justify-center bg-green-300 text-white hover:bg-green-500"
+            onClick={() => setOpen(true)}
+          >
+            <ShoppingCart className="w-8 h-8" />
+            {totalItems > 0 && (
+              <Badge className="absolute -top-2 -right-2">{totalItems}</Badge>
+            )}
+          </button>
+        )
+      }
       <Modal open={open} onClose={() => setOpen(false)}>
         <h2 className="text-lg font-bold mb-2">Carrinho de Compras</h2>
         {items.length === 0 ? (
           <p className="text-gray-500">Seu carrinho está vazio.</p>
         ) : (
-          <ul className="mb-4 max-h-60 overflow-y-auto">
+          <ul className="mb-4 max-h-60 overflow-y-auto divide-y divide-gray-200">
             {items.map((item) => (
-              <li key={item.id} className="flex justify-between items-center py-1 border-b last:border-b-0">
-                <span>
-                  {item.title} <span className="text-xs text-gray-500">x{item.quantity}</span>
-                </span>
-                <span className="text-green-700 font-semibold mr-2">R$ {(item.price * item.quantity).toFixed(2)}</span>
-                <button
-                  className="text-red-500 hover:underline text-xs"
-                  onClick={() => dispatch(removeFromCart(item.id))}
-                >
-                  Remover
-                </button>
+              <li
+                key={item.id}
+                className="flex items-center justify-between py-3 px-2 bg-white hover:bg-gray-50 transition"
+              >
+                <div className="flex flex-col min-w-0 flex-1">
+                  <span className="font-medium truncate">{item.title}</span>
+                  <span className="text-xs text-gray-500">
+                    Quantidade: <span className="font-semibold">{item.quantity}</span>
+                  </span>
+                </div>
+                <div className="flex flex-col items-end min-w-[90px] ml-4">
+                  <span className="text-green-700 font-semibold">
+                    R$ {(item.price * item.quantity).toFixed(2)}
+                  </span>
+                  <button
+                    className="text-red-500 hover:underline text-xs mt-1"
+                    onClick={() => dispatch(removeFromCart(item.id))}
+                  >
+                    Remover
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
         )}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between gap-2 items-center">
           <button
             className="text-sm text-gray-600 hover:underline"
             onClick={() => dispatch(clearCart())}

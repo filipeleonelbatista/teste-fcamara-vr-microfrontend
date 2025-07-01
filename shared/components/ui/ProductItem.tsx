@@ -20,16 +20,16 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   };
 
   return (
-    <div className="border-green-300 rounded p-4 flex flex-col items-center hover:scale-105 transition">
+    <div className="cursor-pointer h-[419px] border border-green-300 rounded p-4 flex flex-col items-center hover:scale-105 transition">
       <img
         src={product.thumbnail}
         alt={product.title}
-        className="w-24 h-24 object-cover rounded mb-2 border"
+        className="w-[214px] h-auto object-cover mb-2"
       />
-      <div className="font-semibold mb-1 text-center">{product.title}</div>
-      <div className="text-green-700 font-bold mb-2">R$ {product.price.toFixed(2)}</div>
+      <div className="mb-1 text-center">{product.title}</div>
+      <div className="mb-2 text-center">R$ {product.price.toFixed(2)}</div>
       <button
-        className="bg-green-700 text-white px-3 py-1 rounded text-sm w-full mt-auto"
+        className="flex bg-green-700 text-white px-3 py-1 rounded text-sm w-fit mt-auto"
         onClick={handleAddToCart}
       >
         Add to Cart
